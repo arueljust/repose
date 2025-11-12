@@ -1,5 +1,7 @@
 # Repose 🎯
 
+**Status**: Production-ready Ruby gem for AI-powered repository creation - intelligent automation of GitHub project setup and documentation generation.
+
 > **AI-powered GitHub repository creation and management tool**
 
 [![Gem Version](https://badge.fury.io/rb/repose.svg)](https://badge.fury.io/rb/repose)
