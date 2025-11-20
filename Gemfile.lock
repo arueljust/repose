@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    repose (1.0.0)
+    repose (1.1.0)
       faraday (~> 2.0)
       octokit (~> 6.0)
       ostruct (~> 0.6)
