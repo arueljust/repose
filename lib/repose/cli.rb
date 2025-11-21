@@ -155,7 +155,13 @@ module Repose
         "java" => ["Spring Boot", "Quarkus", "Micronaut"],
         "go" => ["Gin", "Echo", "Fiber", "Chi"],
         "rust" => ["Actix", "Axum", "Warp", "Rocket"],
-        "swift" => ["Vapor", "Perfect", "Kitura"]
+        "swift" => ["Vapor", "Perfect", "Kitura"],
+        "php" => ["Laravel", "Symfony", "CodeIgniter", "CakePHP"],
+        "c#" => [".NET Core", "ASP.NET", "Blazor"],
+        "c++" => ["Qt", "Boost", "Poco"],
+        "c" => ["GTK", "libuv", "SDL2"],
+        "scala" => ["Play", "Akka", "Lagom"],
+        "kotlin" => ["Ktor", "Spring Boot", "Micronaut"]
       }
 
       frameworks[language] || []
@@ -167,6 +173,7 @@ module Repose
       
       puts pastel.bold("Name: ") + content[:name]
       puts pastel.bold("Description: ") + content[:description]
+      puts pastel.bold("License: ") + (content[:license] || "MIT").upcase
       puts pastel.bold("Topics: ") + content[:topics].join(", ")
       
       puts "\n" + pastel.bold("README Preview:")
@@ -190,6 +197,30 @@ module Repose
         )
         
         spinner.success("✅")
+        
+        # Create language-specific project files
+        project_files = ProjectFilesGenerator.generate(
+          language: content[:language],
+          framework: content[:framework],
+          name: name
+        )
+        
+        if project_files.any?
+          file_spinner = TTY::Spinner.new("[:spinner] Adding project files...", format: :dots)
+          file_spinner.auto_spin
+          
+          project_files.each do |file_path, file_content|
+            github_client.create_file(
+              repo.full_name,
+              file_path,
+              "Add #{file_path}",
+              file_content
+            )
+          end
+          
+          file_spinner.success("✅")
+        end
+        
         puts pastel.green("Repository created successfully!")
         puts pastel.cyan("🔗 #{repo.html_url}")
       rescue => e

@@ -73,6 +73,20 @@ module Repose
       raise Errors::GitHubError, "Failed to fetch user info: #{e.message}"
     end
 
+    def create_file(repo_name, path, message, content)
+      @client.create_contents(
+        repo_name,
+        path,
+        message,
+        content
+      )
+    rescue Octokit::UnprocessableEntity => e
+      # File might already exist, skip it
+      puts "Skipping #{path} (already exists)"
+    rescue Octokit::Error => e
+      raise Errors::GitHubError, "Failed to create file #{path}: #{e.message}"
+    end
+
     private
 
     def normalize_license_key(license)

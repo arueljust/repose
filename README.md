@@ -20,6 +20,7 @@ Reposer is an intelligent CLI tool that uses AI to create GitHub repositories wi
 - **🏷️ 20 Intelligent Topics**: Generates up to 20 relevant tags and topics automatically
 - **😊 Emoji Support**: Automatic emoji inclusion in descriptions and READMEs for visual appeal
 - **📄 License Selection**: Interactive license picker (MIT, Apache, GPL, BSD, MPL, Unlicense)
+- **🗂️ Language-Specific Project Files**: Auto-generates boilerplate files (go.mod, package.json, requirements.txt, etc.)
 - **👁️ Preview Mode**: See generated content before creating repository
 - **🔐 Secure Configuration**: Encrypted storage of API keys and tokens
 - **⚡ Multi-Language Support**: Built-in support for 15+ programming languages

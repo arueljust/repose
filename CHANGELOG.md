@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2025-11-21
+
+### Added
+- **License Preview**: License type now displayed in repository preview before creation
+- **Language-Specific Project Files**: Automatic generation of boilerplate project files
+  - **Go**: `go.mod` and `.gitignore`
+  - **Python**: `requirements.txt` and `.gitignore` (with framework-specific dependencies for Django, Flask, FastAPI)
+  - **JavaScript/TypeScript**: `package.json`, `tsconfig.json` (TypeScript only), and `.gitignore`
+  - **Ruby**: `Gemfile` and `.gitignore` (with framework-specific gems for Rails, Sinatra)
+  - **Rust**: `Cargo.toml` and `.gitignore`
+  - **Java**: `pom.xml` (Spring Boot projects) and `.gitignore`
+  - **.NET**: `.gitignore`
+  - **PHP**: `composer.json` (with framework-specific dependencies for Laravel, Symfony) and `.gitignore`
+  - All generated files are automatically committed to the new repository
+
 ## [1.2.0] - 2025-11-21
 
 ### Added

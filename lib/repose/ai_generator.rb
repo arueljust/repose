@@ -17,7 +17,9 @@ module Repose
         description: generate_description(context),
         topics: generate_topics(context),
         readme: generate_readme(context),
-        license: context[:license]
+        license: context[:license],
+        language: context[:language],
+        framework: context[:framework]
       }
     end
 

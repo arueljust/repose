@@ -6,6 +6,7 @@ require_relative "repose/github_client"
 require_relative "repose/ai_generator"
 require_relative "repose/config"
 require_relative "repose/errors"
+require_relative "repose/project_files_generator"
 
 module Repose
   class << self
